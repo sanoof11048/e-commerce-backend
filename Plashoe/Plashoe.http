@@ -1,0 +1,6 @@
+@Plashoe_HostAddress = http://localhost:5285
+
+GET {{Plashoe_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
