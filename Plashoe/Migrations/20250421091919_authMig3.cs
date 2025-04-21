@@ -5,7 +5,7 @@
 namespace Plashoe.Migrations
 {
     /// <inheritdoc />
-    public partial class authMig : Migration
+    public partial class authMig3 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

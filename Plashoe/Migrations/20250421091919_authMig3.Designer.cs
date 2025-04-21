@@ -12,8 +12,8 @@ using Plashoe.Data;
 namespace Plashoe.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250415040051_Initt1")]
-    partial class Initt1
+    [Migration("20250421091919_authMig3")]
+    partial class authMig3
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -204,6 +204,10 @@ namespace Plashoe.Migrations
 
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
+
+                    b.Property<string>("ProductName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
