@@ -81,12 +81,16 @@ namespace Plashoe
 
             builder.Services.AddCors(options =>
             {
-                options.AddPolicy("AllowLocalhost",
+                options.AddPolicy("AllowAll",
                     policy => policy
-                        .WithOrigins("http://localhost:5000")
+                        .AllowAnyOrigin()
                         .AllowAnyMethod()
                         .AllowAnyHeader());
             });
+
+
+
+
 
 
 
@@ -135,7 +139,7 @@ namespace Plashoe
                 app.UseSwaggerUI();
             }
 
-            app.UseCors("AllowLocalhost");
+            app.UseCors("AllowAll");
             //app.UseCors("AllowLocalhost5000");
             app.UseHttpsRedirection();
             app.UseAuthorization();
