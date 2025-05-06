@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using CloudinaryDotNet.Actions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Plashoe.Data;
@@ -6,6 +7,7 @@ using Plashoe.DTOs;
 using Plashoe.Model;
 using Plashoe.Repositories;
 using System.IdentityModel.Tokens.Jwt;
+using System.Runtime.Intrinsics.X86;
 using System.Security.Claims;
 using System.Text;
 
@@ -31,6 +33,7 @@ namespace Plashoe.Services.Users
         public async Task<List<UserDTO>> GetUsers()
         {
             var users = await _userRepo.GetAllUsers();
+            //var userDTOs new List<UserDTO>
             return _mapper.Map<List<UserDTO>>(users);
         }
 
@@ -63,6 +66,7 @@ namespace Plashoe.Services.Users
                     Id = user.Id,
                     Name = user.Name
                 };
+
             }
             catch (Exception ex)
             {

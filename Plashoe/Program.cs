@@ -9,6 +9,7 @@ using Plashoe.Services.Addresses;
 using Plashoe.Services.Admin;
 using Plashoe.Services.Auth;
 using Plashoe.Services.Carts;
+using Plashoe.Services.Categories;
 using Plashoe.Services.Cloudinary;
 using Plashoe.Services.OrderServices;
 using Plashoe.Services.Products;
@@ -35,7 +36,8 @@ namespace Plashoe
             builder.Services.AddScoped<IUserService, UserService>();
             builder.Services.AddScoped<IAddressService, AddressService>();
             builder.Services.AddScoped<IAdminService, AdminService>();
-            builder.Services.AddScoped<ICloudinaryService, CloudinaryService>();
+            builder.Services.AddScoped<ICategoryService, CategoryService>();
+            builder.Services.AddSingleton<ICloudinaryService, CloudinaryService>();
 
             builder.Services.AddScoped<ProductRepository>();
             builder.Services.AddScoped<UserRepository>();
@@ -51,6 +53,8 @@ namespace Plashoe
             builder.Configuration.GetConnectionString("DefaultConnection"),
             sqlOptions => sqlOptions.EnableRetryOnFailure()
             ));
+
+
 
 
 
@@ -87,13 +91,6 @@ namespace Plashoe
                         .AllowAnyMethod()
                         .AllowAnyHeader());
             });
-
-
-
-
-
-
-
 
             builder.Services.AddControllers();
 

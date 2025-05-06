@@ -44,7 +44,7 @@ namespace Plashoe.Repositories
         public async Task AddOrder(Order order)
         {
             await _context.Order.AddAsync(order);
-            await Save();
+            await _context.SaveChangesAsync();
         }
 
         public async Task RemoveOrder(Order order)
