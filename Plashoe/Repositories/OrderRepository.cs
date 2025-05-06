@@ -27,8 +27,7 @@ namespace Plashoe.Repositories
             .ToListAsync();
 
         public async Task<Cart> GetCartById(int userId)=>
-        await _context.Carts
-                    .FirstOrDefaultAsync(c => c.UserId == userId);
+        await _context.Carts.FirstOrDefaultAsync(c => c.UserId == userId);
 
         public async Task EmpyCart(int cartId)
         {
