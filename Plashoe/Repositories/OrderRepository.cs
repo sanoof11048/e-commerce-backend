@@ -35,7 +35,8 @@ namespace Plashoe.Repositories
             var cart = await _context.Carts.FindAsync(cartId);
             if (cart == null)
             {
-                throw new InvalidOperationException("Cart not found");
+                _logger.LogWarning($"Cart with ID {cartId} not found while trying to empty it.");
+                return;
             }
             _context.Carts.Remove(cart);
             await _context.SaveChangesAsync();

@@ -75,12 +75,13 @@ namespace Plashoe.Services.OrderServices
 
                 await _repo.AddOrder(order);
 
-                var cart = _repo.GetCartById(orderDto.UserId);
+                var cart = await _repo.GetCartById(orderDto.UserId);
 
                 if (cart != null)
                 {
                    await _repo.EmpyCart(cart.Id);
                 }
+
 
                 return new ApiResponse<string>(200, "Order placed successfully", order.Id.ToString());
             }
