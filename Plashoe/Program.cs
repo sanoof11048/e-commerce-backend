@@ -49,15 +49,10 @@ namespace Plashoe
 
             // Add services to the container.
             builder.Services.AddDbContext<AppDbContext>(options =>
-            options.UseSqlServer(
-            builder.Configuration.GetConnectionString("DefaultConnection"),
-            sqlOptions => sqlOptions.EnableRetryOnFailure()
-            ));
-
-
-
-
-
+                options.UseSqlServer(
+                    "Server=db17739.public.databaseasp.net,1433;Database=db17739;User Id=db17739;Password=6y!BcC2_+7aW;Encrypt=False;TrustServerCertificate=True;MultipleActiveResultSets=True;",
+                    sqlOptions => sqlOptions.EnableRetryOnFailure()
+                ));
 
 
             builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -128,6 +123,8 @@ namespace Plashoe
             builder.Services.AddSwaggerGen();
 
             var app = builder.Build();
+
+            builder.Configuration.AddEnvironmentVariables();
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())

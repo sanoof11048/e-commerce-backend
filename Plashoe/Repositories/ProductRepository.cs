@@ -12,14 +12,10 @@ namespace Plashoe.Repositories
     public class ProductRepository
     {
         private readonly AppDbContext _context;
-        private readonly IMapper _mapper;
-        private readonly ILogger<ProductRepository> _logger;
 
-        public ProductRepository(AppDbContext context, IMapper mapper, ILogger<ProductRepository> logger)
+        public ProductRepository(AppDbContext context)
         {
             _context = context;
-            _mapper = mapper;
-            _logger = logger;
         }
 
         public async Task<List<Product>> GetAll() =>
